@@ -3,12 +3,15 @@ import UIKit
 class ViewController: UIViewController {
     
     private let arrow = CALayer()
+    private let segmentLayer = CAShapeLayer()
+    private var isIntersecting = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createCircle(startAngle: 20, endAngle: 90)
         createArrow()
+        startCheckingIntersection()
     }
     
     private func createSegment(startAngle: CGFloat, endAngle: CGFloat) -> UIBezierPath {
@@ -17,7 +20,7 @@ class ViewController: UIViewController {
     
     private func createCircle(startAngle: CGFloat, endAngle: CGFloat) {
         let segmentPath = createSegment(startAngle: startAngle, endAngle: endAngle)
-        let segmentLayer = CAShapeLayer()
+        
         segmentLayer.path = segmentPath.cgPath
         segmentLayer.lineWidth = 30
         segmentLayer.strokeColor = UIColor.blue.cgColor
@@ -30,23 +33,50 @@ class ViewController: UIViewController {
         arrow.bounds = CGRect(x: 0, y: 0, width: 10, height: 200)
         arrow.position = view.center
         arrow.backgroundColor = UIColor.red.cgColor
-        
-        // Устанавливаем точку вращения в центре слоя
         arrow.anchorPoint = CGPoint(x: 0.5, y: 0.9)
         
         view.layer.addSublayer(arrow)
         
-        startSecondHandAnimation()
+        startArrowAnimation()
     }
     
-    func startSecondHandAnimation() {
+    private func startArrowAnimation() {
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotationAnimation.fromValue = 0
         rotationAnimation.toValue = 2 * Double.pi
-        rotationAnimation.duration = 10 // Длительность анимации в секундах
+        rotationAnimation.duration = 5 // Длительность анимации в секундах
         rotationAnimation.repeatCount = .infinity
         
         arrow.add(rotationAnimation, forKey: "secondHandAnimation")
+    }
+    
+    private func startCheckingIntersection() {
+        let displayLink = CADisplayLink(target: self, selector: #selector(checkIntersection))
+        displayLink.add(to: .current, forMode: .common)
+    }
+    
+    @objc private func checkIntersection() {
+        guard let presentationLayer = arrow.presentation() else {
+            return
+        }
+        
+        let arrowPath = UIBezierPath(rect: presentationLayer.frame)
+        let segmentPath = UIBezierPath(cgPath: segmentLayer.path!)
+        
+        if arrowPath.cgPath.intersects(segmentPath.cgPath) {
+            if !isIntersecting {
+                isIntersecting = true
+                print("Стрелка пересекает сегмент")
+            }
+        } else {
+            isIntersecting = false
+        }
+    }
+}
+
+extension ViewController: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        checkIntersection()
     }
 }
 
