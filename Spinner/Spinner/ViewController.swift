@@ -5,11 +5,12 @@ class ViewController: UIViewController {
     private let arrow = CALayer()
     private let segmentLayer = CAShapeLayer()
     private var isIntersecting = false
+    private var startAngle: CGFloat = Double.random(in: 0...360)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createCircle(startAngle: 20, endAngle: 90)
+        createCircle(startAngle: startAngle, endAngle: startAngle + 70)
         createArrow()
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView(_:)))
@@ -55,7 +56,7 @@ class ViewController: UIViewController {
     }
     
     private func createArrow() {
-        arrow.bounds = CGRect(x: 0, y: 0, width: 7, height: 200)
+        arrow.bounds = CGRect(x: 0, y: 0, width: 5, height: 200)
         arrow.position = view.center
         arrow.backgroundColor = UIColor.red.cgColor
         arrow.anchorPoint = CGPoint(x: 0.5, y: 0.9)
