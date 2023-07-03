@@ -15,13 +15,55 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAg-xW-0Oq">
+                                <rect key="frame" x="40" y="79" width="60" height="27.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="eRX-EA-gfB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKk-I2-tVX">
+                                <rect key="frame" x="136.66666666666666" y="79" width="119.99999999999997" height="27.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="cmF-dh-XmI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSw-Nl-C0p">
+                                <rect key="frame" x="293" y="79" width="60" height="27.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="F2K-5z-WjD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="eKk-I2-tVX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4fq-rI-gZh"/>
+                            <constraint firstItem="hAg-xW-0Oq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Lei-qf-9fn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vSw-Nl-C0p" secondAttribute="trailing" constant="40" id="Znn-wx-TK5"/>
+                            <constraint firstItem="hAg-xW-0Oq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="pT7-lq-a9M"/>
+                            <constraint firstItem="vSw-Nl-C0p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="sI0-Vj-OGq"/>
+                            <constraint firstItem="eKk-I2-tVX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="vmD-73-Jl6"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="03b-0g-zsE" appends="YES" id="wVJ-9S-CL0"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="counter" destination="hAg-xW-0Oq" id="L32-Ug-FM6"/>
+                        <outlet property="livesCounter" destination="vSw-Nl-C0p" id="wRi-nQ-NQC"/>
+                        <outlet property="stage" destination="eKk-I2-tVX" id="B5G-vV-9xA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="03b-0g-zsE"/>
