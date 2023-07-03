@@ -4,7 +4,7 @@ class ViewController: UIViewController {
     
     private let arrow = CALayer()
     private let segmentLayer = CAShapeLayer()
-    private var isIntersecting = false
+    private var isIntersecting = true
     private var startAngle: CGFloat = Double.random(in: 0...360)
     
     override func viewDidLoad() {
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGestureRecognizer)
     }
-    
+
     @objc func didTapView(_ sender: UITapGestureRecognizer) {
         _ = sender.location(in: self.view)
         
@@ -29,12 +29,13 @@ class ViewController: UIViewController {
         let segmentPath = UIBezierPath(cgPath: segmentLayer.path!)
         
         if arrowPath.cgPath.intersects(segmentPath.cgPath) {
-            if !isIntersecting {
-                isIntersecting = true
-                print("Попало!")
+            if isIntersecting {
+                segmentLayer.removeFromSuperlayer()
+     
+                let startAngle: CGFloat = Double.random(in: 0...360)
+                createCircle(startAngle: startAngle, endAngle: startAngle + 70)
             }
         } else {
-            isIntersecting = false
             print("Мимо")
         }
     }
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
         segmentLayer.fillColor = UIColor.clear.cgColor
         segmentLayer.lineCap = .round
         
-        self.view.layer.addSublayer(segmentLayer)
+        view.layer.insertSublayer(segmentLayer, below: arrow)
     }
     
     private func createArrow() {
