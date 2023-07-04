@@ -5,7 +5,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var heart3: UIImageView!
     @IBOutlet weak var heart2: UIImageView!
     @IBOutlet weak var heart1: UIImageView!
-    @IBOutlet weak var livesCounter: UILabel!
     @IBOutlet weak var stage: UILabel!
     @IBOutlet weak var counter: UILabel!
     
@@ -34,14 +33,13 @@ class ViewController: UIViewController {
     }
     
     private func setImages() {
-        heart1.image  = UIImage(named: "heart1")
-        heart2.image  = UIImage(named: "heart1")
-        heart3.image  = UIImage(named: "heart1")
+        heart1.image = UIImage(named: "heart1")
+        heart2.image = UIImage(named: "heart1")
+        heart3.image = UIImage(named: "heart1")
     }
     
     private func setTexts() {
         counter.text = String(counterInt)
-        livesCounter.text = String(lives)
     }
     
     private func tabGestureInitialization() {
@@ -95,17 +93,12 @@ class ViewController: UIViewController {
             }
         } else {
             lives -= 1
-            livesCounter.text = String(lives)
             
             if lives == 2 {
                 heart3.layer.opacity = 0.4
-            }
-            
-            if lives == 1 {
+            } else if lives == 1 {
                 heart2.layer.opacity = 0.4
-            }
-            
-            if lives == 0 {
+            } else if lives == 0 {
                 heart1.layer.opacity = 0.4
                 print("Конец игры")
             }
