@@ -27,6 +27,9 @@ class ViewController: UIViewController {
     
     private func firstStage() {
         stage.text = "Stage 1"
+        stage.textColor = UIColor(red: 41/255, green: 45/255, blue: 50/255, alpha: 1.0)
+        counter.textColor = UIColor(red: 41/255, green: 45/255, blue: 50/255, alpha: 1.0)
+        
         view.backgroundColor = UIColor(hexFromString: "#fed001", alpha: 1.0)
         createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#4c4480", alpha: 1.0))
         createArrow()
@@ -75,19 +78,29 @@ class ViewController: UIViewController {
                     createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#4c4480", alpha: 1.0))
                 case 5...9:
                     stage.text = "Stage 2"
-                    startArrowAnimation(speed:  2.5)
-                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#FF9642", alpha: 1.0))
+                    createCircle(startAngle: startAngle, endAngle: startAngle + 40, color: UIColor(hexFromString: "#FF9642", alpha: 1.0))
+                    startArrowAnimation(speed: 3)
                     view.backgroundColor = UIColor(hexFromString: "#02bbb5", alpha: 1.0)
                 case 10...14:
                     stage.text = "Stage 3"
-                    startArrowAnimation(speed: 2)
-                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#8F9157", alpha: 1.0))
-                    view.backgroundColor = UIColor(hexFromString: "#563c61", alpha: 1.0)
+                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#6B6D4C", alpha: 1.0))
+                    startArrowAnimation(speed: 2.8)
+                    view.backgroundColor = UIColor(hexFromString: "#A58BB0", alpha: 1.0)
                 case 15...19:
                     stage.text = "Stage 4"
-                    startArrowAnimation(speed: 1.5)
-                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#fdde9e", alpha: 1.0))
-                    view.backgroundColor = UIColor(hexFromString: "#563c61", alpha: 1.0)
+                    createCircle(startAngle: startAngle, endAngle: startAngle + 40, color: UIColor(hexFromString: "#FFA503", alpha: 1.0))
+                    startArrowAnimation(speed: 2.8)
+                    view.backgroundColor = UIColor(hexFromString: "#02bbb5", alpha: 1.0)
+                case 20...29:
+                    stage.text = "Stage 5"
+                    startArrowAnimation(speed: 2.6)
+                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#C8BF8C", alpha: 1.0))
+                    view.backgroundColor = UIColor(hexFromString: "#404763", alpha: 1.0)
+                case 30...39:
+                    stage.text = "Stage 6"
+                    startArrowAnimation(speed: 2.6)
+                    createCircle(startAngle: startAngle, endAngle: startAngle + 40, color: UIColor(hexFromString: "#fdde9e", alpha: 1.0))
+                    view.backgroundColor = UIColor(hexFromString: "#02bbb5", alpha: 1.0)
                 default: break
                 }
             }
