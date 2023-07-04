@@ -14,36 +14,36 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        createCircle(startAngle: startAngle, endAngle: startAngle + 70)
-        createArrow()
+
         tabGestureInitialization()
-        setColors()
         setTexts()
+        firstStage()
     }
     
     private func secondStage() {
         startArrowAnimation(speed: 2.5)
         createCircle(startAngle: startAngle, endAngle: startAngle + 70)
-        stage.text = "Stage \(2)"
+        stage.text = "Stage 2"
     }
     
     private func thirdStage() {
         startArrowAnimation(speed: 2)
         createCircle(startAngle: startAngle, endAngle: startAngle + 70)
-        stage.text = "Stage \(3)"
+        stage.text = "Stage 3"
+    }
+    
+    private func firstStage() {
+        stage.text = "Stage 1"
+        self.view.backgroundColor = UIColor(red: 254.0/255.0, green: 208.0/255.0, blue: 1.0/255.0, alpha: 1.0)
+        createCircle(startAngle: startAngle, endAngle: startAngle + 70)
+        createArrow()
     }
     
     private func setTexts() {
         counter.text = String(counterInt)
-        stage.text = "Stage \(1)"
         livesCounter.text = String(lives)
     }
-    
-    private func setColors() {
-        self.view.backgroundColor = UIColor(red: 254.0/255.0, green: 208.0/255.0, blue: 1.0/255.0, alpha: 1.0)
-    }
-    
+
     private func tabGestureInitialization() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView(_:)))
         tapGestureRecognizer.numberOfTapsRequired = 1
@@ -67,7 +67,6 @@ class ViewController: UIViewController {
         
         if arrowPath.cgPath.intersects(segmentPath.cgPath) {
             if isIntersecting {
-                print("да")
                 segmentLayer.removeFromSuperlayer()
                 
                 let startAngle: CGFloat = Double.random(in: 0...360)
@@ -83,7 +82,6 @@ class ViewController: UIViewController {
                 }
             }
         } else {
-            print("нет")
             lives -= 1
             livesCounter.text = String(lives)
             
