@@ -23,20 +23,8 @@ class ViewController: UIViewController {
     private func firstStage() {
         stage.text = "Stage 1"
         view.backgroundColor = UIColor(hexFromString: "#fed001", alpha: 1.0)
-        createCircle(startAngle: startAngle, endAngle: startAngle + 70)
+        createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#4c4480", alpha: 1.0))
         createArrow()
-    }
-    
-    private func secondStage() {
-        startArrowAnimation(speed: 2.5)
-        createCircle(startAngle: startAngle, endAngle: startAngle + 70)
-        stage.text = "Stage 2"
-    }
-    
-    private func thirdStage() {
-        startArrowAnimation(speed: 2)
-        createCircle(startAngle: startAngle, endAngle: startAngle + 70)
-        stage.text = "Stage 3"
     }
     
     private func setTexts() {
@@ -70,14 +58,23 @@ class ViewController: UIViewController {
                 segmentLayer.removeFromSuperlayer()
                 
                 let startAngle: CGFloat = Double.random(in: 0...360)
-                createCircle(startAngle: startAngle, endAngle: startAngle + 70)
-                
+    
                 counterInt += 1
                 counter.text = String(counterInt)
                 
                 switch counterInt {
-                case 5: secondStage()
-                case 10: thirdStage()
+                case 0...4:
+                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#4c4480", alpha: 1.0))
+                case 5...9:
+                    stage.text = "Stage 2"
+                    startArrowAnimation(speed: 2.5)
+                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#fe2a36", alpha: 1.0))
+                    view.backgroundColor = UIColor(hexFromString: "#02bbb5", alpha: 1.0)
+                case 10...20:
+                    stage.text = "Stage 3"
+                    startArrowAnimation(speed: 2)
+                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#fdde9e", alpha: 1.0))
+                    view.backgroundColor = UIColor(hexFromString: "#563c61", alpha: 1.0)
                 default: break
                 }
             }
@@ -88,7 +85,6 @@ class ViewController: UIViewController {
             if lives == 0 {
                 print("Конец игры")
             }
-            
         }
     }
     
@@ -96,12 +92,11 @@ class ViewController: UIViewController {
         return UIBezierPath(arcCenter: CGPoint(x: self.view.frame.midX, y: self.view.frame.midY), radius: Double.random(in: 80...150), startAngle: startAngle.toRadians(), endAngle: endAngle.toRadians(), clockwise: true)
     }
     
-    private func createCircle(startAngle: CGFloat, endAngle: CGFloat) {
+    private func createCircle(startAngle: CGFloat, endAngle: CGFloat, color: UIColor) {
         let segmentPath = createSegment(startAngle: startAngle, endAngle: endAngle)
         
         segmentLayer.path = segmentPath.cgPath
         segmentLayer.lineWidth = Double.random(in: 10...50)
-        let color = UIColor(red: 76.0/255.0, green: 68.0/255.0, blue: 128.0/255.0, alpha: 1.0)
         segmentLayer.strokeColor = color.cgColor
         segmentLayer.fillColor = UIColor.clear.cgColor
         segmentLayer.lineCap = .round
@@ -138,16 +133,18 @@ extension CGFloat {
 }
 
 extension UIColor {
-    convenience init(hexFromString:String, alpha:CGFloat = 1.0) {
-        var cString:String = hexFromString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        var rgbValue:UInt32 = 10066329 //color #999999 if string has wrong format
+    convenience init(hexFromString: String, alpha: CGFloat = 1.0) {
+        var cString: String = hexFromString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        var rgbValue: UInt32 = 10066329
 
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
         }
 
         if ((cString.count) == 6) {
-            Scanner(string: cString).scanHexInt32(&rgbValue)
+            if let hexValue = UInt32(cString, radix: 16) {
+                rgbValue = hexValue
+            }
         }
 
         self.init(
