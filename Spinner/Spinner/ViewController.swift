@@ -22,11 +22,8 @@ class ViewController: UIViewController {
         
         tabGestureInitialization()
         setTexts()
+        setImages()
         firstStage()
-        
-        heart1.image  = UIImage(named: "heart1")
-        heart2.image  = UIImage(named: "heart1")
-        heart3.image  = UIImage(named: "heart1")
     }
     
     private func firstStage() {
@@ -34,6 +31,12 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor(hexFromString: "#fed001", alpha: 1.0)
         createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#4c4480", alpha: 1.0))
         createArrow()
+    }
+    
+    private func setImages() {
+        heart1.image  = UIImage(named: "heart1")
+        heart2.image  = UIImage(named: "heart1")
+        heart3.image  = UIImage(named: "heart1")
     }
     
     private func setTexts() {
@@ -48,8 +51,6 @@ class ViewController: UIViewController {
     }
     
     @objc func didTapView(_ sender: UITapGestureRecognizer) {
-    //    _ = sender.location(in: self.view)
-        
         guard let presentationLayer = arrow.presentation() else {
             return
         }
@@ -96,7 +97,16 @@ class ViewController: UIViewController {
             lives -= 1
             livesCounter.text = String(lives)
             
+            if lives == 2 {
+                heart3.layer.opacity = 0.4
+            }
+            
+            if lives == 1 {
+                heart2.layer.opacity = 0.4
+            }
+            
             if lives == 0 {
+                heart1.layer.opacity = 0.4
                 print("Конец игры")
             }
         }
