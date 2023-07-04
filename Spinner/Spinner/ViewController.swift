@@ -20,6 +20,13 @@ class ViewController: UIViewController {
         firstStage()
     }
     
+    private func firstStage() {
+        stage.text = "Stage 1"
+        view.backgroundColor = UIColor(hexFromString: "#fed001", alpha: 1.0)
+        createCircle(startAngle: startAngle, endAngle: startAngle + 70)
+        createArrow()
+    }
+    
     private func secondStage() {
         startArrowAnimation(speed: 2.5)
         createCircle(startAngle: startAngle, endAngle: startAngle + 70)
@@ -30,13 +37,6 @@ class ViewController: UIViewController {
         startArrowAnimation(speed: 2)
         createCircle(startAngle: startAngle, endAngle: startAngle + 70)
         stage.text = "Stage 3"
-    }
-    
-    private func firstStage() {
-        stage.text = "Stage 1"
-        self.view.backgroundColor = UIColor(red: 254.0/255.0, green: 208.0/255.0, blue: 1.0/255.0, alpha: 1.0)
-        createCircle(startAngle: startAngle, endAngle: startAngle + 70)
-        createArrow()
     }
     
     private func setTexts() {
@@ -134,5 +134,27 @@ class ViewController: UIViewController {
 extension CGFloat {
     func toRadians() -> CGFloat {
         return self * CGFloat(Double.pi) / 180.0
+    }
+}
+
+extension UIColor {
+    convenience init(hexFromString:String, alpha:CGFloat = 1.0) {
+        var cString:String = hexFromString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        var rgbValue:UInt32 = 10066329 //color #999999 if string has wrong format
+
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+
+        if ((cString.count) == 6) {
+            Scanner(string: cString).scanHexInt32(&rgbValue)
+        }
+
+        self.init(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: alpha
+        )
     }
 }
