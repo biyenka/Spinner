@@ -43,15 +43,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HbS-Mg-0gP">
+                                <rect key="frame" x="40" y="773" width="30" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="YaZ-Tl-HNm"/>
+                                    <constraint firstAttribute="width" constant="30" id="g3d-Oi-IBS"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gH1-pJ-3Zb">
+                                <rect key="frame" x="40" y="738" width="30" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="3ik-Hh-LTJ"/>
+                                    <constraint firstAttribute="width" constant="30" id="zir-Lg-y0p"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fk0-5U-ezn">
+                                <rect key="frame" x="40" y="703" width="30" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="VxK-vc-nl8"/>
+                                    <constraint firstAttribute="width" constant="30" id="lFy-WY-VZY"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="eKk-I2-tVX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4fq-rI-gZh"/>
+                            <constraint firstItem="gH1-pJ-3Zb" firstAttribute="top" secondItem="fk0-5U-ezn" secondAttribute="bottom" constant="10" id="8uh-sK-qzN"/>
                             <constraint firstItem="hAg-xW-0Oq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Lei-qf-9fn"/>
+                            <constraint firstItem="HbS-Mg-0gP" firstAttribute="top" secondItem="gH1-pJ-3Zb" secondAttribute="bottom" constant="10" id="Rib-ZK-Tee"/>
+                            <constraint firstItem="gH1-pJ-3Zb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Rtc-fK-red"/>
+                            <constraint firstItem="HbS-Mg-0gP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="V0m-iA-8Js"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vSw-Nl-C0p" secondAttribute="trailing" constant="40" id="Znn-wx-TK5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HbS-Mg-0gP" secondAttribute="bottom" constant="20" id="b7n-iA-sWd"/>
                             <constraint firstItem="hAg-xW-0Oq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="pT7-lq-a9M"/>
+                            <constraint firstItem="fk0-5U-ezn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="rbt-lm-1gk"/>
                             <constraint firstItem="vSw-Nl-C0p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="sI0-Vj-OGq"/>
                             <constraint firstItem="eKk-I2-tVX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="vmD-73-Jl6"/>
                         </constraints>
@@ -61,6 +88,9 @@
                     </view>
                     <connections>
                         <outlet property="counter" destination="hAg-xW-0Oq" id="L32-Ug-FM6"/>
+                        <outlet property="heart1" destination="HbS-Mg-0gP" id="1AQ-5e-qBY"/>
+                        <outlet property="heart2" destination="gH1-pJ-3Zb" id="2dC-a3-hS8"/>
+                        <outlet property="heart3" destination="fk0-5U-ezn" id="ZqP-0y-VUr"/>
                         <outlet property="livesCounter" destination="vSw-Nl-C0p" id="wRi-nQ-NQC"/>
                         <outlet property="stage" destination="eKk-I2-tVX" id="B5G-vV-9xA"/>
                     </connections>
@@ -68,7 +98,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="03b-0g-zsE"/>
             </objects>
-            <point key="canvasLocation" x="140" y="4"/>
+            <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

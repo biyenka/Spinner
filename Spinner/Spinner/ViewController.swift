@@ -2,9 +2,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var heart3: UIImageView!
+    @IBOutlet weak var heart2: UIImageView!
+    @IBOutlet weak var heart1: UIImageView!
     @IBOutlet weak var livesCounter: UILabel!
     @IBOutlet weak var stage: UILabel!
     @IBOutlet weak var counter: UILabel!
+    
     private var counterInt = 0
     private let arrow = CALayer()
     private let segmentLayer = CAShapeLayer()
@@ -19,6 +23,10 @@ class ViewController: UIViewController {
         tabGestureInitialization()
         setTexts()
         firstStage()
+        
+        heart1.image  = UIImage(named: "heart1")
+        heart2.image  = UIImage(named: "heart1")
+        heart3.image  = UIImage(named: "heart1")
     }
     
     private func firstStage() {
@@ -69,15 +77,15 @@ class ViewController: UIViewController {
                 case 5...9:
                     stage.text = "Stage 2"
                     startArrowAnimation(speed:  2.5)
-                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#fe2a36", alpha: 1.0))
+                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#FF9642", alpha: 1.0))
                     view.backgroundColor = UIColor(hexFromString: "#02bbb5", alpha: 1.0)
                 case 10...14:
                     stage.text = "Stage 3"
                     startArrowAnimation(speed: 2)
-                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#fdde9e", alpha: 1.0))
+                    createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#8F9157", alpha: 1.0))
                     view.backgroundColor = UIColor(hexFromString: "#563c61", alpha: 1.0)
                 case 15...19:
-                    stage.text = "Stage 3"
+                    stage.text = "Stage 4"
                     startArrowAnimation(speed: 1.5)
                     createCircle(startAngle: startAngle, endAngle: startAngle + 70, color: UIColor(hexFromString: "#fdde9e", alpha: 1.0))
                     view.backgroundColor = UIColor(hexFromString: "#563c61", alpha: 1.0)
