@@ -16,6 +16,7 @@
 		E64AC9542A45ADF1008BAEB6 /* SpinnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64AC9532A45ADF1008BAEB6 /* SpinnerTests.swift */; };
 		E64AC95E2A45ADF1008BAEB6 /* SpinnerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64AC95D2A45ADF1008BAEB6 /* SpinnerUITests.swift */; };
 		E64AC9602A45ADF1008BAEB6 /* SpinnerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64AC95F2A45ADF1008BAEB6 /* SpinnerUITestsLaunchTests.swift */; };
+		E68EA68D2A555AC300FA62B5 /* punch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E68EA68C2A555AC300FA62B5 /* punch.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E64AC9592A45ADF1008BAEB6 /* SpinnerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpinnerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64AC95D2A45ADF1008BAEB6 /* SpinnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerUITests.swift; sourceTree = "<group>"; };
 		E64AC95F2A45ADF1008BAEB6 /* SpinnerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E68EA68C2A555AC300FA62B5 /* punch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = punch.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				E64AC93C2A45ADF1008BAEB6 /* AppDelegate.swift */,
 				E64AC93E2A45ADF1008BAEB6 /* SceneDelegate.swift */,
 				E64AC9402A45ADF1008BAEB6 /* ViewController.swift */,
+				E68EA68C2A555AC300FA62B5 /* punch.mp3 */,
 				E64AC9422A45ADF1008BAEB6 /* Main.storyboard */,
 				E64AC9452A45ADF1008BAEB6 /* Assets.xcassets */,
 				E64AC9472A45ADF1008BAEB6 /* LaunchScreen.storyboard */,
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E64AC9492A45ADF1008BAEB6 /* LaunchScreen.storyboard in Resources */,
+				E68EA68D2A555AC300FA62B5 /* punch.mp3 in Resources */,
 				E64AC9462A45ADF1008BAEB6 /* Assets.xcassets in Resources */,
 				E64AC9442A45ADF1008BAEB6 /* Main.storyboard in Resources */,
 			);
